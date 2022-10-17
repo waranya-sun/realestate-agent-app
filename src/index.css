@@ -1,13 +1,835 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --neon-yellow: #daf204;
+  /* --neon-green: #39ff14; */
+  
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/**************************/
+/* General */
+/**************************/
+* {
+  margin : 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Font-size: 10px for the root */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #000;
+}
+
+.neon-yellow {
+  color: var(--neon-yellow);
+}
+
+.heading-page { 
+  font-size: 4rem;
+  padding: 4rem 0;
+}
+
+.sub-heading-page {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 3rem 0;
+}
+
+.layout-page {
+  max-width: 140rem;
+  margin: 0 auto;
+  padding: 0 5rem;
+  margin-bottom: 13rem;
+}
+
+.layout-form {
+  max-width: 40rem;
+  margin: 3rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.no-list-style {
+  list-style-type: none;
+}
+
+.primary-btn {
+  color: #000;
+  background-color: var(--neon-yellow);
+  width: 40rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem 0;
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin-top: 3rem;
+}
+
+.primary-btn:hover{
+  background-color: #000;
+  color: var(--neon-yellow);
+}
+
+.danger-btn {
+  fill: #f00;
+  font-size: 2.3rem;
+  margin: 0 1rem;
+}
+
+.load-more-btn{
+  border: 2px solid #000;
+  background: none;
+  outline: none;
+  font-size: 1.3rem;
+  padding: 2px 10px;
+  border-radius: 1.5rem;
+}
+
+.load-more-btn:hover{
+  background: #000;
+  color: #fff;
+}
+
+.map-style{
+  height: 300px;
+  width: 100%;
+}
+
+.share-icon-div{
+  background-color: #000;
+  display: inline-block;
+  padding: 12px;
+  border-radius: 50%;
+  position: fixed;
+  top: 100px;
+  right: 80px;
+  z-index: 1000;
+}
+
+.share-icon{
+  fill: var(--neon-yellow);
+  font-size: 2.8rem;
+}
+
+.linkCopied{
+  position: fixed;
+  top: 170px;
+  right: 60px;
+  z-index: 1000;
+  font-size: 1.3rem;
+  background-color: var(--neon-yellow);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--neon-yellow) !important;
+}
+
+.swiper-style{
+  background-size: cover !important;
+  height: 60rem;
+  width: 100%;
+}
+
+.paintYellow{
+  width: 55rem;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  transform: rotate(-5deg);
+}
+
+.demoAccount {
+  font-size: 1.3rem;
+  margin: 5px 0;
+  line-height: 1.5;
+  background: #eaf58d;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+
+/**************************/
+/* Home */
+/**************************/
+.navbar{
+  padding: 1.5rem 4rem;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 3rem;;
+  font-weight:900;
+  cursor: pointer;
+}
+
+.login {
+  padding: 0 15px 9px 15px;
+  font-size: 1.5rem;
+  border: 0.5px solid var(--neon-yellow);
+  border-radius: 5px;
+}
+
+.login-icon {
+  position: relative;
+  font-size: 1.9rem;
+  margin-right: 5px;
+  top : 3px;
+}
+
+.login-text {
+  padding: 0 5px;
+}
+
+.login-text:hover {
+  color: var(--neon-yellow);
+  cursor: pointer;
+}
+
+.register-text{
+  padding: 0 5px;
+}
+
+.register-text:hover{
+  color: var(--neon-yellow);
+  cursor: pointer;
+}
+
+.heading-maincontent{
+  font-size: 4.5rem;
+  text-align: center;
+  font-weight: 500;
+  padding: 6rem 0;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: 10% 35% 10% 35% 10%;
+  justify-content: center;
+  margin-bottom: 16rem;
+}
+
+.categories a {
+  text-decoration: none;
+  color: #000;
+}
+
+.category-card {
+  border: 1px solid #000;
+  padding: 5px 5px 5px 0;
+}
+
+.category{
+  display: grid;
+  grid-template-columns: 40% 60%;
+  align-items: center;
+}
+
+.category-text {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.category-img{
+  width: 100%;
+}
+
+
+/**************************/
+/* Profile */
+/**************************/
+.change-name{
+  display: flex;
+  width: 40rem;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.change-name-form{
+  padding: 1rem;
+  background-color: var(--neon-yellow);
+  width: 40rem;
+  border-radius: 10px;
+  font-size: 2rem;
+  margin: 1rem 0 3rem 0;
+}
+
+.profileName, .profileNameActive {
+  all: unset;
+  width: 36rem;
+  border-radius: 5px;
+  padding: 0 1rem;
+}
+
+.profileNameActive{
+  background-color: #fff;
+}
+
+.sale-rent-link-btn{
+  text-decoration: none;
+  color: #000;
+  background-color: var(--neon-yellow);
+  width: 40rem;
+  display: block;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem 0;
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+.edit-delete-btns {
+  text-align: center;
+}
+
+.listing-shadow{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+}
+
+.change-btn {
+  background-color: #000;
+  color: var(--neon-yellow);
+  padding: 0 9px;
+  border-radius: 10px;
+}
+
+
+/**************************/
+/* Sign-Up */
+/**************************/
+.usernameInput, .emailInput, .passwordInput{
+  border: 1px solid #000;
+  border-radius: 10px;
+  width: 100%;
+  margin: 5px 0;
+  outline: none;
+  padding: 1.5rem 1.5rem 1.5rem 4.5rem;
+  font-family: inherit;
+}
+
+.usernameInput{
+  background: url('./assets/usernameIcon.svg') 2% center no-repeat;
+}
+
+.emailInput {
+  background: url('./assets/emailIcon.svg') 2% center no-repeat;
+}
+
+.passwordInput {
+  background: url('./assets/padlockIcon.svg') 2% center no-repeat;
+}
+
+.usernameInput:focus {
+  box-shadow: 0 0 5px var(--neon-yellow);
+}
+
+.passwordInput:focus {
+  box-shadow: 0 0 5px var(--neon-yellow);
+}
+
+.emailInput:focus{
+  box-shadow: 0 0 5px var(--neon-yellow);
+}
+
+.eyeIcon{
+  position: relative;
+}
+
+.eyeIconBtn {
+  width : 28px;
+  position: absolute;
+  top : 1.5rem;
+  right: 2rem;
+}
+
+
+/**************************/
+/* Sign-In */
+/**************************/
+.forgot-password{
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #000;
+  position: relative;
+  text-align: end;
+  font-weight: bold;
+}
+
+
+/**************************/
+/* OAuth */
+/**************************/
+.google-form {
+  display: flex;
+  margin-top: 3rem;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  padding: 7px;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.google-form:hover{
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.1);
+}
+
+.google-icon{
+  width: 2.9rem;
+  margin-right: 2rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  padding: 5px;
+}
+
+
+/**************************/
+/* CreateListing */
+/**************************/
+.form-label{
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.form-buttons{
+  display: flex;
+}
+
+.form-button, .form-button-active{
+  padding: 1rem 4rem;
+  font-weight: bold;
+  background: none;
+  border-radius: 2rem;
+  margin: 0.5rem 1.8rem 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.5px solid #000;
+  font-size: 1.6rem;
+}
+
+.form-button-active{
+  background-color: var(--neon-yellow);
+}
+
+.form-bedroom, .form-bathroom{
+  border-radius: 10px;
+  padding: 5px 0 5px 10px;
+  width : 5.5rem;
+  border: 1px solid #000;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.form-field{
+  margin: 10px 0;
+}
+
+.form-regular-price, .form-discounted-price{
+  border-radius: 10px;
+  padding: 5px 0 5px 10px;
+  border: 1px solid #000;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.form-input-file{
+  border: 1px solid #000;
+  border-radius: 1.5rem;
+  padding: 5px 10px;
+  font-family: inherit;
+}
+
+.form-input-file::-webkit-file-upload-button {
+  background-color: var(--neon-yellow);
+  border: none;
+  color: #000;
+  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  font-family: inherit;
+}
+
+.form-textarea{
+  border: 1px solid #000;
+  border-radius: 5px;
+  outline: none;
+  padding: 8px;
+  margin-top: 5px;
+  font-family: inherit;
+}
+
+
+/**************************/
+/* Listing */
+/**************************/
+.listing-details-div{
+  font-size: 2rem;
+  padding: 6rem;
+  line-height: 1.5;
+  margin-bottom: 9rem;
+}
+
+.for-rent{
+  background-color: var(--neon-yellow);
+  color: #000;
+  padding: 0px 10px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-radius: 15px;
+  border: 1px solid #000;
+  margin-right: 2rem;
+}
+
+.showDiscount{
+  display: flex;
+  margin: 1.5rem 0;
+}
+
+.discounted{
+  background-color:#000;
+  color: #fff;
+  padding: 0px 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 15px;
+  border: 1px solid #000;
+}
+
+.contact-landlord-link{
+  text-decoration: none;
+  background-color: #000;
+  color: var(--neon-yellow);
+  width: 40rem;
+  display: block;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 3rem;
+  margin: 5rem auto 0 auto;
+  cursor: default;
+}
+
+.contact-landlord-link:hover{
+  background-color: var(--neon-yellow);
+  color: #000;
+  border: 1px solid #000;
+}
+
+
+/**************************/
+/* ListingItem */
+/**************************/
+.listing-item-list{
+  display: flex;
+  align-items: center;
+}
+
+.listing-item-link{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  line-height: 2.5;
+  font-size: 1.8rem;
+}
+
+.listing-item-img{
+  width : 32rem;
+  height: 12rem;
+  border-radius: 10px;
+}
+
+.listing-item-details{
+  padding: 0 4rem;
+}
+
+.listing-item-price{
+  color: var(--neon-yellow);
+  background-color: #000;
+  padding: 2px 10px;
+  border-radius: 15px;
+  font-size: 1.6rem;
+}
+
+.room-details{
+  display: flex;
+  font-size: 1.6rem;
+}
+
+.room-detail{
+  margin-right: 6rem;
+}
+
+.list-item-icon{
+  font-size: 2rem;
+  margin-right: 2rem;
+}
+
+
+/**************************/
+/* Contact */
+/**************************/
+.contact-textarea {
+  border: 1px solid #000;
+  border-radius: 10px;
+  width: 100%;
+  margin: 0.5rem 0 3rem 0;
+  height: 250px;
+  outline: none;
+  padding: 1.5rem;
+  font-family: inherit;
+  font-size: 1.5rem;
+}
+
+.textarea:focus{
+  box-shadow: 0 0 5px var(--neon-yellow);
+}
+
+
+/**************************/
+/* Footer */
+/**************************/
+.footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.footer-menu{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  list-style-type: none;
+  align-items: center;
+  height: 9.5rem;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.footer-icon{
+  font-size: 4.5rem;
+  padding: 5px;
+}
+
+.footer-icon:hover {
+  font-size: 5.2rem;
+  transition: 0.1s linear all;
+}
+
+.footer-active-menu{
+  color:  var(--neon-yellow);
+}
+
+
+/**************************/
+/* Spinner */
+/**************************/
+.loadingSpinnerContainer{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingSpinner{
+  width: 6.4rem;
+  height: 6.4rem;
+  border: 0.8rem solid;
+  border-color: var(--neon-yellow) transparent var(--neon-yellow) transparent;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform : rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/**************************/
+/* Media Queries */
+/**************************/
+@media (max-width: 1200px) {
+  /* Nothing Here */
+}
+
+@media (max-width: 992px){
+  .categories {
+    grid-template-columns: 5% 42.5% 5% 42.5% 5%;
+  }
+
+  .category-text {
+    font-size: 1.8rem;
+  }
+
+  .listing-item-list{
+    margin-bottom: 2.5rem;
+  }
+
+  .listing-item-link{
+    line-height: 2.2;
+    font-size: 1.6rem;
+  }
+
+  .listing-item-price{
+    font-size: 1.5rem;
+  }
+
+  .listing-item-details{
+    padding: 0 0 0 3.5rem;
+  }
+
+  .list-item-icon{
+    font-size: 1.6rem;
+    margin-right: 1rem;
+  }
+
+  .room-details{
+    font-size: 1.4rem;
+  }
+
+  .room-detail{
+    margin-right: 3rem;
+  }
+
+  .share-icon-div{
+    padding: 10px;
+  }
+
+  .share-icon{
+    font-size: 2.5rem;
+  }
+
+  .linkCopied{
+    top: 160px;
+  }
+
+  .swiper-style{
+    height: 40rem;
+  }
+}
+
+@media (max-width: 768px){
+  .heading-maincontent {
+    padding: 4rem 0;
+    line-height: 1.5;
+  }
+
+  .layout-page{
+    padding: 0 2rem;
+  }
+
+  .listing-item-img {
+    width: 23rem;
+    height: 10rem;
+  }
+
+  .listing-item-link{
+    line-height: 2;
+    font-size: 1.4rem;
+  }
+
+  .listing-item-price{
+    font-size: 1.3rem;
+  }
+
+  .room-details{
+    line-height: 1;
+  }
+
+  .share-icon-div{
+    padding: 8px;
+    top: 100px;
+    right: 30px;
+  }
+
+  .share-icon{
+    font-size: 2rem;
+  }
+
+  .linkCopied{
+    top: 145px;
+    right: 10px;
+  }
+
+  
+
+
+ 
+
+
+  .swiper-style{
+    height: 30rem;
+  }
+}
+
+@media (max-width: 567px){
+  .categories {
+    grid-template-columns: 100%;
+  }
+
+  .category-card {
+    margin: 2rem;
+  }
+
+  .listing-item-list{
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .listing-item-link{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .listing-item-img {
+    width: 100%;
+    height: 16rem;
+  }
+
+  .listing-item-details{
+    padding: 0;
+  }
+
+  .swiper-style{
+    height: 20rem;
+  }
+
+  .map-style{
+    height: 250px;
+    width: 100%;
+  }
+
+  .contact-landlord-link{
+   width: 100%;
+  }
 }
