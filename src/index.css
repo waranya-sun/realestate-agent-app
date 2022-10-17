@@ -735,6 +735,11 @@ body {
   .swiper-style{
     height: 40rem;
   }
+
+  .paintYellow{
+    width: 30rem;
+    top: 80px;
+  }
 }
 
 @media (max-width: 768px){
@@ -780,14 +785,14 @@ body {
     right: 10px;
   }
 
-  
-
-
- 
-
-
   .swiper-style{
     height: 30rem;
+  }
+
+  .paintYellow{
+    width: 25rem;
+    top: 40px;
+    left: 30px;
   }
 }
 
@@ -831,5 +836,11 @@ body {
 
   .contact-landlord-link{
    width: 100%;
+  }
+
+  .paintYellow{
+    width: 16rem;
+    top: 20px;
+    left: 20px;
   }
 }
