@@ -93,7 +93,7 @@ function SignUp() {
           />
           <img
             className='eyeIconBtn'
-            src={showPassword ? eyeHiddenIcon : eyeIcon}
+            src={showPassword ? eyeIcon : eyeHiddenIcon}
             onClick={() => setShowPassword(prevState => !prevState)}
           />
         </div>
