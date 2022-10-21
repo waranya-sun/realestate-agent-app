@@ -17,7 +17,7 @@ function Navbar() {
         setLoggedIn(false);
       }
     });
-  }, [loggedIn]);
+  });
 
   function handleSignOutBtn() {
     auth.signOut();
